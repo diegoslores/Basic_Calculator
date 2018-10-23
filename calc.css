@@ -1,0 +1,75 @@
+* {
+  box-sizing: border-box;
+}
+
+button {
+  background-color: darkgray;
+  font-size: 40px;
+  color: black;
+  border: 1.5px solid black;
+}
+button:hover {
+  background-color: gainsboro;
+}
+
+button:active {
+  background-color: gray;
+}
+
+.general {
+  height: 600px;
+  width: 400px;
+}
+
+.result {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  background-color: black;
+  height: 100px;
+  color: grey;
+  padding-right: 10px;
+  font: 40px monospace;
+}
+
+.c,
+.seven,
+.four,
+.one,
+.cero {
+  display: flex;
+  background-color: blanchedalmond;
+  height: 100px;
+}
+
+.orange {
+  background-color: orange;
+  color: white;
+  border-right: none;
+}
+.orange:hover {
+  background-color: rgb(245, 189, 84);
+}
+.orange:active {
+  background-color: rgb(255, 145, 0);
+}
+
+.no-end {
+  border-bottom: none;
+}
+
+.no-left {
+  border-left: none;
+}
+
+.quart {
+  flex: 25%;
+}
+
+.med {
+  flex: 50%;
+}
+
+.great {
+  flex: 75%;
+}
