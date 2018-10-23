@@ -1,5 +1,7 @@
 let numero;
-let conjunto = [];
+let conjuntoA = "";
+let operator = "";
+let conjuntoB = "";
 
 let boton = document.querySelector(".buttons");
 boton.addEventListener("click", onClick);
@@ -9,12 +11,29 @@ function onClick(evento) {
   let resultado = document.querySelector(".result");
 
   if (parseInt(numero) <= 9) {
-    resultado.innerText += numero;
-    conjunto.push(parseInt(numero));
+    oneNine();
   } else if (numero === "C") {
-    resultado.innerText = "0";
-    conjunto = [];
+    C();
+  } else {
+    operation();
   }
+  console.log(conjuntoA);
 
-  console.log(conjunto);
+  function oneNine() {
+    resultado.innerText += numero;
+    conjuntoA += numero;
+  }
+  function C() {
+    resultado.innerText = "0";
+    conjuntoA = "";
+    conjuntoB = "";
+  }
+  function operation() {
+    switch (true) {
+      case true:
+        break;
+      default:
+        alert("alert");
+    }
+  }
 }
