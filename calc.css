@@ -29,6 +29,7 @@ button:active {
   height: 100px;
   color: grey;
   padding-right: 10px;
+  padding-left: 5px;
   font: 40px monospace;
 }
 
@@ -72,4 +73,10 @@ button:active {
 
 .great {
   flex: 75%;
+}
+
+.break-word {
+  word-break: break-all;
+  word-wrap: break-word;
+  overflow: hidden;
 }

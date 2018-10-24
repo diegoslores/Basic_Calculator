@@ -1,8 +1,3 @@
-/*let numero;
-let conjuntoA = "";
-let operator = "";
-let conjuntoB = "";*/
-
 const state = {
   numero: "",
   conjuntoA: "",
