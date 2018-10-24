@@ -17,11 +17,13 @@ function onClick(evento) {
   } else if (parseInt(numero) <= 9) {
     if (operator === "") {
       numA();
-    } else if (operator !== "") {
+    } else {
       numB();
     }
     console.log(`conjuntoA ${conjuntoA}`);
     console.log(`conjuntoB ${conjuntoB}`);
+  } else if (numero === "←") {
+    erase();
   } else {
     operator = numero;
     console.log(`operator ${operator}`);
@@ -31,6 +33,7 @@ function onClick(evento) {
     conjuntoA += numero;
     resultado.innerText = conjuntoA;
   }
+
   function numB() {
     conjuntoB += numero;
     resultado.innerText = conjuntoB;
@@ -42,6 +45,19 @@ function onClick(evento) {
     conjuntoB = "";
     operator = "";
   }
+
+  function erase() {
+    if (operator === "") {
+      conjuntoA = conjuntoA.slice(0, -1);
+      resultado.innerText = conjuntoA;
+    } else {
+      conjuntoB = conjuntoB.slice(0, -1);
+      resultado.innerText = conjuntoB;
+    }
+    console.log(`Erase conjuntoA ${conjuntoA}`);
+    console.log(`Erase conjuntoB ${conjuntoB}`);
+  }
+
   function operation() {
     switch (true) {
       case operator === "+":
@@ -81,17 +97,3 @@ function onClick(evento) {
     }
   }
 }
-
-/*if (
-      operator ===
-      "+" ||
-      operator === "-" ||
-      operator === "*" ||
-      operator === "÷"
-    ) {
-      numero = "";
-      
-    } else {
-      
-    }
-}*/
