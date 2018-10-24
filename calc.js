@@ -12,6 +12,8 @@ function onClick(evento) {
 
   if (numero === "C") {
     C();
+  } else if (numero === "=") {
+    operation();
   } else if (parseInt(numero) <= 9) {
     if (operator === "") {
       numA();
@@ -26,36 +28,58 @@ function onClick(evento) {
   }
 
   function numA() {
-    resultado.innerText += numero;
     conjuntoA += numero;
+    resultado.innerText = conjuntoA;
   }
   function numB() {
-    resultado.innerText += numero;
     conjuntoB += numero;
+    resultado.innerText = conjuntoB;
   }
 
   function C() {
     resultado.innerText = "0";
     conjuntoA = "";
     conjuntoB = "";
+    operator = "";
   }
-  /*function operation() {
+  function operation() {
     switch (true) {
-      case numero === "+":
-        resultado.innerText = " ";
-        resultado.innerText += numero;
-        conjuntoB += numero;
+      case operator === "+":
+        suma = parseInt(conjuntoA) + parseInt(conjuntoB);
+        resultado.innerText = suma;
+        conjuntoA = "";
+        conjuntoB = "";
+        operator = "";
+        console.log(`suma ${suma}`);
         break;
-      case numero === "-":
+      case operator === "-":
+        resta = conjuntoA - conjuntoB;
+        resultado.innerText = resta;
+        conjuntoA = "";
+        conjuntoB = "";
+        operator = "";
+        console.log(`resta ${resta}`);
         break;
-      case numero === "÷":
+      case operator === "÷":
+        division = conjuntoA / conjuntoB;
+        resultado.innerText = division;
+        conjuntoA = "";
+        conjuntoB = "";
+        operator = "";
+        console.log(`division ${division}`);
         break;
-      case numero === "x":
+      case operator === "x":
+        mult = conjuntoA * conjuntoB;
+        resultado.innerText = mult;
+        conjuntoA = "";
+        conjuntoB = "";
+        operator = "";
+        console.log(`mult ${mult}`);
         break;
       default:
-        alert("alert");
+        alert(numero);
     }
-  }*/
+  }
 }
 
 /*if (
