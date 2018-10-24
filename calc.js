@@ -1,99 +1,106 @@
-let numero;
+/*let numero;
 let conjuntoA = "";
 let operator = "";
-let conjuntoB = "";
+let conjuntoB = "";*/
+
+const state = {
+  numero: "",
+  conjuntoA: "",
+  operator: "",
+  conjuntoB: ""
+};
 
 let boton = document.querySelector(".buttons");
 boton.addEventListener("click", onClick);
 
 function onClick(evento) {
-  numero = evento.target.innerText;
+  state.numero = evento.target.innerText;
   let resultado = document.querySelector(".result");
 
-  if (numero === "C") {
+  if (state.numero === "C") {
     C();
-  } else if (numero === "=") {
+  } else if (state.numero === "=") {
     operation();
-  } else if (parseInt(numero) <= 9) {
-    if (operator === "") {
+  } else if (parseInt(state.numero) <= 9) {
+    if (state.operator === "") {
       numA();
+      console.log(`conjuntoA ${state.conjuntoA}`);
     } else {
       numB();
+      console.log(`conjuntoB ${state.conjuntoB}`);
     }
-    console.log(`conjuntoA ${conjuntoA}`);
-    console.log(`conjuntoB ${conjuntoB}`);
-  } else if (numero === "←") {
+  } else if (state.numero === "←") {
     erase();
   } else {
-    operator = numero;
-    console.log(`operator ${operator}`);
+    state.operator = state.numero;
+    console.log(`operator ${state.operator}`);
   }
 
   function numA() {
-    conjuntoA += numero;
-    resultado.innerText = conjuntoA;
+    state.conjuntoA += state.numero;
+    resultado.innerText = state.conjuntoA;
   }
 
   function numB() {
-    conjuntoB += numero;
-    resultado.innerText = conjuntoB;
+    state.conjuntoB += state.numero;
+    resultado.innerText = state.conjuntoB;
   }
 
   function C() {
     resultado.innerText = "0";
-    conjuntoA = "";
-    conjuntoB = "";
-    operator = "";
+    state.conjuntoA = "";
+    state.conjuntoB = "";
+    state.operator = "";
   }
 
   function erase() {
-    if (operator === "") {
-      conjuntoA = conjuntoA.slice(0, -1);
-      resultado.innerText = conjuntoA;
+    if (state.operator === "") {
+      state.conjuntoA = state.conjuntoA.slice(0, -1);
+      resultado.innerText = state.conjuntoA;
+      console.log(`Erase conjuntoA ${state.conjuntoA}`);
     } else {
-      conjuntoB = conjuntoB.slice(0, -1);
-      resultado.innerText = conjuntoB;
+      state.conjuntoB = state.conjuntoB.slice(0, -1);
+      resultado.innerText = state.conjuntoB;
+      console.log(`Erase conjuntoB ${state.conjuntoB}`);
     }
-    console.log(`Erase conjuntoA ${conjuntoA}`);
-    console.log(`Erase conjuntoB ${conjuntoB}`);
   }
 
   function operation() {
     switch (true) {
-      case operator === "+":
-        suma = parseInt(conjuntoA) + parseInt(conjuntoB);
+      case state.operator === "+":
+        suma = parseInt(state.conjuntoA) + parseInt(state.conjuntoB);
         resultado.innerText = suma;
-        conjuntoA = "";
-        conjuntoB = "";
-        operator = "";
+        state.conjuntoA = "";
+        state.conjuntoB = "";
+        state.operator = "";
         console.log(`suma ${suma}`);
         break;
-      case operator === "-":
-        resta = conjuntoA - conjuntoB;
+      case state.operator === "-":
+        resta = state.conjuntoA - state.conjuntoB;
         resultado.innerText = resta;
-        conjuntoA = "";
-        conjuntoB = "";
-        operator = "";
+        state.conjuntoA = "";
+        state.conjuntoB = "";
+        state.operator = "";
         console.log(`resta ${resta}`);
         break;
-      case operator === "÷":
-        division = conjuntoA / conjuntoB;
+      case state.operator === "÷":
+        division = state.conjuntoA / state.conjuntoB;
         resultado.innerText = division;
-        conjuntoA = "";
-        conjuntoB = "";
-        operator = "";
+        state.conjuntoA = "";
+        state.conjuntoB = "";
+        state.operator = "";
         console.log(`division ${division}`);
         break;
-      case operator === "x":
-        mult = conjuntoA * conjuntoB;
+      case state.operator === "x":
+        mult = state.conjuntoA * state.conjuntoB;
         resultado.innerText = mult;
-        conjuntoA = "";
-        conjuntoB = "";
-        operator = "";
+        state.conjuntoA = "";
+        state.conjuntoB = "";
+        state.operator = "";
         console.log(`mult ${mult}`);
         break;
       default:
-        alert(numero);
+        resultado.innerText = 0;
     }
   }
 }
