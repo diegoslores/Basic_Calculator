@@ -10,30 +10,64 @@ function onClick(evento) {
   numero = evento.target.innerText;
   let resultado = document.querySelector(".result");
 
-  if (parseInt(numero) <= 9) {
-    oneNine();
-  } else if (numero === "C") {
+  if (numero === "C") {
     C();
+  } else if (parseInt(numero) <= 9) {
+    if (operator === "") {
+      numA();
+    } else if (operator !== "") {
+      numB();
+    }
+    console.log(`conjuntoA ${conjuntoA}`);
+    console.log(`conjuntoB ${conjuntoB}`);
   } else {
-    operation();
+    operator = numero;
+    console.log(`operator ${operator}`);
   }
-  console.log(conjuntoA);
 
-  function oneNine() {
+  function numA() {
     resultado.innerText += numero;
     conjuntoA += numero;
   }
+  function numB() {
+    resultado.innerText += numero;
+    conjuntoB += numero;
+  }
+
   function C() {
     resultado.innerText = "0";
     conjuntoA = "";
     conjuntoB = "";
   }
-  function operation() {
+  /*function operation() {
     switch (true) {
-      case true:
+      case numero === "+":
+        resultado.innerText = " ";
+        resultado.innerText += numero;
+        conjuntoB += numero;
+        break;
+      case numero === "-":
+        break;
+      case numero === "÷":
+        break;
+      case numero === "x":
         break;
       default:
         alert("alert");
     }
-  }
+  }*/
 }
+
+/*if (
+      operator ===
+      "+" ||
+      operator === "-" ||
+      operator === "*" ||
+      operator === "÷"
+    ) {
+      numero = "";
+      
+    } else {
+      
+    }
+}*/
