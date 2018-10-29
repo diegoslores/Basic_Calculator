@@ -17,13 +17,15 @@ function onClick(evento) {
   } else if (state.numero === "=") {
     operation();
   } else if (parseInt(state.numero) <= 9) {
-    if (state.operator === "") {
+    state.operator === "" ? numA() : numB();
+
+    /*if (state.operator === "") {
       numA();
       console.log(`conjuntoA ${state.conjuntoA}`);
     } else {
       numB();
       console.log(`conjuntoB ${state.conjuntoB}`);
-    }
+    }*/
   } else if (state.numero === "←") {
     erase();
   } else {
